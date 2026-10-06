@@ -32,7 +32,7 @@ Review cadence: run the ponytail review command after every meaningful code chan
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 1.1 | Astro v5 + TypeScript init | ⬜ | |
+| 1.1 | Astro v7 + TypeScript init | 🟡 | Manual scaffold used (pnpm create astro timed out). Astro 7.3.5 + TypeScript installed, static build passing. |
 | 1.2 | Tailwind CSS v4 + typography plugin | ⬜ | Use @theme directive |
 | 1.3 | @astrojs/react for islands | ⬜ | |
 | 1.4 | @astrojs/mdx | ⬜ | |
@@ -81,7 +81,7 @@ Review cadence: run the ponytail review command after every meaningful code chan
 |---|------|--------|-------|
 | 4.1 | src/pages/api/contact.ts (standard Astro route) | ⬜ | |
 | 4.2 | Resend API via fetch (not Node SDK) | ⬜ | Works on all runtimes |
-| 4.3 | Env vars: RESEND_API_KEY, CONTACT_TO_EMAIL | ⬜ | |
+| 5.1 | tina/config.ts | ⬜ | |
 | 4.4 | Zod validation for all fields | ⬜ | |
 | 4.5 | Rate limiting (in-memory Map for now) | ⬜ | Portable; swap to KV later |
 | 4.6 | Success/error inline feedback with aria-live | ⬜ | |
@@ -107,9 +107,9 @@ Review cadence: run the ponytail review command after every meaningful code chan
 |---|------|--------|-------|
 | 6.1 | JSON-LD Person schema | ⬜ | Skip "#" URLs in sameAs |
 | 6.2 | Open Graph tags | ⬜ | og:url from PUBLIC_SITE_URL |
+| 6.2 | Open Graph tags | ⬜ | |
 | 6.3 | robots.txt | ⬜ | |
 | 6.4 | sitemap.xml | ⬜ | |
-| 6.5 | Semantic HTML audit | ⬜ | |
 
 ---
 

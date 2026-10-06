@@ -1,0 +1,49 @@
+/* Single source of truth for theme tokens */
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --border: #e2e8f0;
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  --success: #10b981;
+  --card: #ffffff;
+  --surface: #f8fafc;
+}
+
+[data-theme="dark"] {
+  --background: #0b1120;
+  --foreground: #e2e8f0;
+  --primary: #60a5fa;
+  --primary-foreground: #0b1120;
+  --border: #1e293b;
+  --muted: #111827;
+  --muted-foreground: #94a3b8;
+  --success: #34d399;
+  --card: #0f172a;
+  --surface: #0b1120;
+}
+
+[data-theme="light"] {
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --border: #e2e8f0;
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  --success: #10b981;
+  --card: #ffffff;
+  --surface: #f8fafc;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+}
