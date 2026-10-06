@@ -19,7 +19,7 @@ const email = "themindshow109@gmail.com";
       portfolio
     </a>
 
-    <ul class="hidden items-center gap-4 text-foreground sm:flex">
+    <ul id="primary-links" class="hidden items-center gap-4 text-foreground sm:flex">
       {links.map((link) => (
         <li>
           <a
@@ -45,6 +45,7 @@ const email = "themindshow109@gmail.com";
         type="button"
         id="theme-toggle"
         class="rounded border border-border bg-card px-3 py-1.5 text-sm text-foreground focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+        aria-label="Toggle light or dark theme"
       >
         Theme
       </button>
@@ -52,9 +53,78 @@ const email = "themindshow109@gmail.com";
         type="button"
         id="mobile-menu-toggle"
         class="rounded border border-border bg-card px-3 py-1.5 text-sm text-foreground focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+        aria-label="Toggle mobile menu"
+        aria-expanded="false"
       >
         Menu
       </button>
     </div>
   </nav>
 </header>
+
+<script is:inline>
+  (function () {
+    // ---- Theme toggle ----
+    var themeToggle = document.getElementById("theme-toggle");
+    if (themeToggle) {
+      function syncThemeButton() {
+        var current = document.documentElement.getAttribute("data-theme") || "dark";
+        themeToggle.textContent = current === "dark" ? "Light" : "Dark";
+      }
+      syncThemeButton();
+      themeToggle.addEventListener("click", function () {
+        var current = document.documentElement.getAttribute("data-theme") || "dark";
+        var next = current === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", next);
+        try { localStorage.setItem("theme", next); } catch (e) {}
+        syncThemeButton();
+      });
+    }
+
+    // ---- Mobile menu ----
+    var menuToggle = document.getElementById("mobile-menu-toggle");
+    var primaryLinks = document.getElementById("primary-links");
+    if (menuToggle && primaryLinks) {
+      function syncMenuButton() {
+        var open = primaryLinks.classList.contains("flex");
+        menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        menuToggle.textContent = open ? "Close" : "Menu";
+      }
+      // Desktop: links are flex via Tailwind sm:flex; mobile: hidden.
+      // On mobile we toggle an inline style so the menu opens below the nav.
+      menuToggle.addEventListener("click", function () {
+        var isOpen = primaryLinks.classList.contains("flex");
+        if (isOpen) {
+          primaryLinks.classList.remove("flex");
+          primaryLinks.style.display = "";
+        } else {
+          // Only force flex on small screens; desktop keeps the sm:flex rule.
+          if (window.innerWidth < 640) {
+            primaryLinks.classList.add("flex");
+            primaryLinks.style.display = "flex";
+          }
+        }
+        syncMenuButton();
+      });
+
+      // Close mobile menu when a link is chosen.
+      primaryLinks.addEventListener("click", function (e) {
+        if (e.target.matches("a[href]") && window.innerWidth < 640) {
+          primaryLinks.classList.remove("flex");
+          primaryLinks.style.display = "";
+          syncMenuButton();
+        }
+      });
+
+      window.addEventListener("resize", function () {
+        if (window.innerWidth >= 640) {
+          primaryLinks.classList.remove("flex");
+          primaryLinks.style.display = "";
+          syncMenuButton();
+        }
+      });
+
+      syncMenuButton();
+    }
+  })();
+</script>
