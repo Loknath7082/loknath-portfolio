@@ -39,7 +39,7 @@ Review cadence: run the ponytail review command after every meaningful code chan
 | 1.5 | @astrojs/sitemap | ⬜ | |
 | 1.6 | Astro adapter (isolated in astro.config.mjs) | ⬜ | Default: @astrojs/vercel; swappable |
 | 1.7 | pnpm setup | ⬜ | |
-| 1.8 | Fonts: Inter + JetBrains Mono | ⬜ | |
+| 1.8 | Fonts: Inter + JetBrains Mono | 🟡 | Fontsource variable fonts (@fontsource-variable/inter, @fontsource-variable/jetbrains-mono). Self-hosted woff2 bundled to dist/_astro/; font-display: swap; weight ranges 100-900 (Inter), 100-800 (JetBrains Mono). |
 | 1.9 | src/styles/theme.css (semantic CSS variables) | ⬜ | Single source of truth |
 
 ---

@@ -21,9 +21,22 @@ import '../styles/theme.css';
         document.documentElement.setAttribute("data-theme", prefersLight ? "light" : "dark");
       })();
     </script>
-  </head>
-  <body>
-    <h1>Loknath Patel</h1>
-    <p>Full-Stack Developer based in India.</p>
-  </body>
+  </head>    <body class="font-sans">
+      <header class="p-6 border-b">
+        <nav class="flex gap-6 items-center">
+          <span class="font-mono text-sm text-muted-foreground">portfolio</span>
+          <a class="font-sans font-medium text-primary" href="#work">Work</a>
+          <a class="font-sans font-medium text-foreground" href="#contact">Contact</a>
+        </nav>
+      </header>
+      <main class="max-w-3xl mx-auto p-6">
+        <section id="work" class="space-y-4">
+          <h1 class="text-4xl font-medium tracking-tight">Loknath Patel</h1>
+          <p class="text-lg text-foreground">Full-Stack Developer based in India.</p>
+          <pre class="font-mono text-sm bg-muted p-4 rounded border text-foreground">const who = "Loknath Patel";
+console.log(who);
+// Full-Stack Developer, India</pre>
+        </section>
+      </main>
+    </body>
 </html>

@@ -1,3 +1,5 @@
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/jetbrains-mono";
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
@@ -13,8 +15,8 @@
   --color-card: var(--card);
   --color-surface: var(--surface);
 
-  --font-sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 /* Single source of truth for theme tokens */
