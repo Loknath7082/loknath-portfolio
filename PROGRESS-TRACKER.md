@@ -132,13 +132,20 @@ Review cadence: run the ponytail review command after every meaningful code chan
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 8.1 | Keyboard navigation for all interactive elements | ⬜ | |
-| 8.2 | Visible focus states | ⬜ | |
-| 8.3 | Semantic heading hierarchy | ⬜ | |
-| 8.4 | Form labels + aria-live | ⬜ | |
-| 8.5 | prefers-reduced-motion support | ⬜ | |
-| 8.6 | Alt text for all images | ⬜ | |
-| 8.7 | WCAG AA contrast check | ⬜ | |
+| 8.1 | Keyboard navigation for all interactive elements | 🟡 | Interactive elements keyboard-operable with focus-visible outlines; full keyboard-only audit deferred. |
+
+| 8.2 | Visible focus states | ✅ | focus-visible:outline-2 + outline-offset-2 on all interactive elements. |
+
+| 8.3 | Semantic heading hierarchy | ✅ | h1 in hero, h2 section titles, h3 card titles. |
+
+| 8.4 | Form labels + aria-live | 🔴 | Deferred: no contact form component yet (React islands blocked). Will add aria-live feedback + labels when contact form is built. |
+
+| 8.5 | prefers-reduced-motion support | ✅ | Added @media (prefers-reduced-motion: reduce) in theme.css. |
+
+| 8.6 | Alt text for all images | ⬜ | No real images yet; placeholder image divs use aria-hidden. Alt text required when real images added. |
+
+| 8.7 | WCAG AA contrast check | 🟡 | Quick visual check of current Tailwind palette usage; formal Lighthouse/contrast audit deferred. |
+
 
 ---
 
