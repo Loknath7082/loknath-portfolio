@@ -37,7 +37,7 @@ Review cadence: run the ponytail review command after every meaningful code chan
 | 1.3 | @astrojs/react for islands | ⬜ | |
 | 1.4 | @astrojs/mdx | ⬜ | |
 | 1.5 | @astrojs/sitemap | ⬜ | |
-| 1.6 | Astro adapter (isolated in astro.config.mjs) | ⬜ | Default: @astrojs/vercel; swappable |
+| 1.6 | Astro adapter (isolated in astro.config.mjs) | ✅ | @astrojs/vercel added (v11.0.11). Adapter isolated to astro.config.mjs; output stays 'static' — static pages remain static, API routes run as serverless functions. |
 | 1.7 | pnpm setup | ⬜ | |
 | 1.8 | Fonts: Inter + JetBrains Mono | 🟡 | Fontsource variable fonts (@fontsource-variable/inter, @fontsource-variable/jetbrains-mono). Self-hosted woff2 bundled to dist/_astro/; font-display: swap; weight ranges 100-900 (Inter), 100-800 (JetBrains Mono). |
 | 1.9 | src/styles/theme.css (semantic CSS variables) | ⬜ | Single source of truth |
@@ -201,6 +201,7 @@ Review cadence: run the ponytail review command after every meaningful code chan
 | 12.4 | Resend called via fetch (not Node SDK) | ✅ | |
 | 12.5 | README: adapter switch guide added | ✅ | README.md includes deploy guide for Vercel, Netlify, Cloudflare with adapter swap instructions. |
 | 12.6 | Env vars documented for Vercel + Netlify + Cloudflare | ✅ | .env.example + README.md env var table. |
+| 12.7 | Vercel adapter wired for contact form API | ✅ | @astrojs/vercel added; astro.config.mjs: adapter: vercel(). output: 'static' preserved — static pages stay static, /api/contact built as serverless function (dist/api/contact). .vercel/ build output gitignored. |
 
 ---
 
@@ -213,6 +214,7 @@ Review cadence: run the ponytail review command after every meaningful code chan
 
 | 2026-10-06 | Added Ponytail as project-wide working style at FULL intensity (session-only) | agent |
 | 2026-10-06 | Final 3 slices committed on dev: (1) theme toggle + mobile menu vanilla JS, (2) CSS scroll reveal + hover animations, (3) deployment prep README/.env.example/.gitignore. Accessibility slice already committed (549ef8f). Build passing. | agent |
+| 2026-10-06 | Added @astrojs/vercel adapter (v11.0.11) for contact form API route. astro.config.mjs: adapter: vercel(), output stays 'static'. Build passes: dist/api/contact built as serverless function, dist/index.html preserved. .vercel/ gitignored. Commit 63f758c. Updated Section 1.6 + 12.7. | agent |
 
 ---
 
