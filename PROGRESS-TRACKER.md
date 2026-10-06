@@ -105,11 +105,10 @@ Review cadence: run the ponytail review command after every meaningful code chan
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 6.1 | JSON-LD Person schema | ⬜ | Skip "#" URLs in sameAs |
-| 6.2 | Open Graph tags | ⬜ | og:url from PUBLIC_SITE_URL |
-| 6.2 | Open Graph tags | ⬜ | |
-| 6.3 | robots.txt | ⬜ | |
-| 6.4 | sitemap.xml | ⬜ | |
+| 6.1 | JSON-LD Person schema | ✅ | Person schema in <head>; sameAs intentionally empty (no non-placeholder social URLs yet). |
+| 6.2 | Open Graph tags | ✅ | og:title, og:description, og:type=profile, og:url rendered from PUBLIC_SITE_URL (defaults to https://example.com). |
+| 6.3 | robots.txt | ✅ | Static public/robots.txt with sitemap-index.xml placeholder; document PUBLIC_SITE_URL + rebuild for production. |
+| 6.4 | sitemap.xml | ✅ | @astrojs/sitemap wired in astro.config.mjs; site from PUBLIC_SITE_URL; sitemap-index.xml generated in dist. |
 
 ---
 

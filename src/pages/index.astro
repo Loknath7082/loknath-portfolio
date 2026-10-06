@@ -1,5 +1,20 @@
 ---
 import '../styles/theme.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || "https://example.com";
+
+const personJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Loknath Patel",
+  jobTitle: "Full-Stack Developer",
+  url: siteUrl,
+  sameAs: [
+    // Only non-placeholder URLs go here. Skip "#" links entirely.
+  ],
+});
 ---
 
 <html lang="en">
@@ -8,6 +23,14 @@ import '../styles/theme.css';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Loknath Patel — Full-Stack Developer</title>
     <meta name="description" content="Full-Stack Developer based in India." />
+
+    <meta property="og:title" content="Loknath Patel — Full-Stack Developer" />
+    <meta property="og:description" content="Full-Stack Developer based in India." />
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content={siteUrl} />
+
+    <script type="application/ld+json" set:html={personJsonLd}></script>
+
     <script>
       (function () {
         try {
@@ -21,22 +44,19 @@ import '../styles/theme.css';
         document.documentElement.setAttribute("data-theme", prefersLight ? "light" : "dark");
       })();
     </script>
-  </head>    <body class="font-sans">
-      <header class="p-6 border-b">
-        <nav class="flex gap-6 items-center">
-          <span class="font-mono text-sm text-muted-foreground">portfolio</span>
-          <a class="font-sans font-medium text-primary" href="#work">Work</a>
-          <a class="font-sans font-medium text-foreground" href="#contact">Contact</a>
-        </nav>
-      </header>
-      <main class="max-w-3xl mx-auto p-6">
-        <section id="work" class="space-y-4">
-          <h1 class="text-4xl font-medium tracking-tight">Loknath Patel</h1>
-          <p class="text-lg text-foreground">Full-Stack Developer based in India.</p>
-          <pre class="font-mono text-sm bg-muted p-4 rounded border text-foreground">const who = "Loknath Patel";
-console.log(who);
-// Full-Stack Developer, India</pre>
-        </section>
-      </main>
-    </body>
+  </head>
+  <body class="font-sans bg-background text-foreground min-h-screen flex flex-col">
+    <Nav />
+    <main class="flex-1">
+      <section id="work" class="max-w-5xl mx-auto p-6">
+        <h1 class="text-4xl font-medium tracking-tight">Work</h1>
+        <p class="mt-2 text-foreground">Work section placeholder.</p>
+      </section>
+      <section id="contact" class="max-w-5xl mx-auto p-6">
+        <h2 class="text-2xl font-medium">Contact</h2>
+        <p class="mt-2 text-foreground">Contact section placeholder.</p>
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>
