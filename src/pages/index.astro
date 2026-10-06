@@ -2,6 +2,11 @@
 import '../styles/theme.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import Metrics from '../components/Metrics.astro';
+import Projects from '../components/Projects.astro';
+import Writing from '../components/Writing.astro';
+import Skills from '../components/Skills.astro';
+import About from '../components/About.astro';
 
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || "https://example.com";
 
@@ -48,13 +53,49 @@ const personJsonLd = JSON.stringify({
   <body class="font-sans bg-background text-foreground min-h-screen flex flex-col">
     <Nav />
     <main class="flex-1">
-      <section id="work" class="max-w-5xl mx-auto p-6">
-        <h1 class="text-4xl font-medium tracking-tight">Work</h1>
-        <p class="mt-2 text-foreground">Work section placeholder.</p>
+      <section id="hero" class="border-t bg-card py-16">
+        <div class="mx-auto max-w-5xl">
+          <div class="flex flex-col gap-8">
+            <div>
+              <span class="inline-flex items-center gap-2 text-sm text-muted-foreground">
+                <span class="relative flex h-2 w-2">
+                  <span class="absolute inline-block h-2 w-2 animate-pulse rounded-full bg-emerald-500"></span>
+                  <span class="absolute inset-0 rounded-full bg-emerald-500/40"></span>
+                </span>
+                Open to Work — Remote / On-site / Hybrid
+              </span>
+              <h1 class="mt-2 text-4xl font-medium tracking-tight">Loknath Patel</h1>
+              <p class="mt-2 text-lg text-foreground">Full-Stack Developer based in India.</p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <a
+                href="#work"
+                class="rounded border border-border bg-card px-4 py-2 text-sm font-medium text-foreground hover:bg-muted focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+              >
+                View Work
+              </a>
+              <a
+                href="#contact"
+                class="rounded border border-border bg-card px-4 py-2 text-sm font-medium text-foreground hover:bg-muted focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+              >
+                Get in Touch
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
-      <section id="contact" class="max-w-5xl mx-auto p-6">
-        <h2 class="text-2xl font-medium">Contact</h2>
-        <p class="mt-2 text-foreground">Contact section placeholder.</p>
+
+      <Metrics />
+      <Projects />
+      <Writing />
+      <Skills />
+      <About />
+
+      <section id="contact" class="border-t bg-card py-12">
+        <div class="mx-auto max-w-5xl">
+          <h2 class="text-2xl font-medium mb-6">Contact</h2>
+          <p class="text-foreground">Contact form is configured at <a href="#" class="text-primary hover:underline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">this placeholder</a> until the frontend contact form component is built.</p>
+        </div>
       </section>
     </main>
     <Footer />

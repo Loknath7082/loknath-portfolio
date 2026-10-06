@@ -64,12 +64,17 @@ Review cadence: run the ponytail review command after every meaningful code chan
 | 3.2 | ThemeToggle (React island) | 🔴 | Deferred: React islands blocked by Astro 7.3.5 + Vite 8.3.2 TSX transform bug in this environment. Non-React placeholder used for now. |
 | 3.3 | MobileNav (React island, hamburger) | 🔴 | Deferred: React islands blocked by Astro 7.3.5 + Vite 8.3.2 TSX transform bug in this environment. Non-React placeholder used for now. |
 | 3.4 | Hero (parallax image right side — desktop only) | 🔴 | Deferred: React islands blocked by Astro 7.3.5 + Vite 8.3.2 TSX transform bug in this environment. CSS-only fallback for now. |
-| 3.5 | Terminal-style code card | ⬜ | |
-| 3.6 | Metrics (4 cards, CMS-driven) | ⬜ | label, value, icon, description |
-| 3.7 | Projects (4 cards, hover animations via CSS) | ⬜ | |
-| 3.8 | Technical Writing (article cards) | ⬜ | |
-| 3.9 | Tech Capabilities (3-column grid) | ⬜ | |
-| 3.10 | About / Bio | ⬜ | |
+| 3.5 | Terminal-style code card | ⬜ | Not built in this slice; placeholder only. Deferred to a later slice. |
+| 3.6 | Metrics (4 cards, CMS-driven) | 🟡 | Metrics component built with 4 placeholder cards (label/value/icon/description). CMS-driven deferred (TinaCMS blocked). |
+
+| 3.7 | Projects (4 cards, hover animations via CSS) | 🟡 | Projects component built with 4 placeholder project cards; CSS hover scale + hover state included. |
+
+| 3.8 | Technical Writing (article cards) | 🟡 | Writing component built with article cards; 4 placeholder article .md pages created. |
+
+| 3.9 | Tech Capabilities (3-column grid) | 🟡 | Skills component built as 3-column grid with placeholder capabilities. |
+
+| 3.10 | About / Bio | 🟡 | About component built with placeholder bio + engineering mindset. |
+
 | 3.11 | Contact Form (React island) | ⬜ | aria-live feedback |
 | 3.12 | Footer (6 social links, CMS-driven) | ⬜ | |
 
@@ -164,12 +169,18 @@ Review cadence: run the ponytail review command after every meaningful code chan
 
 | # | Item | Status | Notes |
 |---|------|--------|-------|
-| 11.1 | 4 project cards (placeholder) | ⬜ | |
-| 11.2 | 4 projects (real content) | ⬜ | |
-| 11.3 | Metrics values (real) | ⬜ | |
-| 11.4 | Article links (real) | ⬜ | |
-| 11.5 | Social URLs (real) | ⬜ | |
-| 11.6 | Profile image (real) | ⬜ | |
+| 11.1 | 4 project cards (placeholder) | ✅ | Placeholder project cards rendered in Projects component. |
+
+| 11.2 | 4 projects (real content) | ⬜ | Still placeholder content; real content deferred. |
+
+| 11.3 | Metrics values (real) | ⬜ | Still placeholder values; real values deferred. |
+
+| 11.4 | Article links (real) | 🟡 | Article cards with links; 4 placeholder .md article pages created. |
+
+| 11.5 | Social URLs (real) | ⬜ | Still "#" placeholders in Footer; real URLs deferred. |
+
+| 11.6 | Profile image (real) | ⬜ | Not yet added; placeholder hero image omitted for now. |
+
 
 ---
 
