@@ -61,9 +61,9 @@ Review cadence: run the ponytail review command after every meaningful code chan
 | # | Component | Status | Notes |
 |---|-----------|--------|-------|
 | 3.1 | Nav (Work · About · Stack · Contact) | ⬜ | |
-| 3.2 | ThemeToggle (React island) | ⬜ | Keyboard accessible |
-| 3.3 | MobileNav (React island, hamburger) | ⬜ | ARIA + keyboard |
-| 3.4 | Hero (parallax image right side — desktop only) | ⬜ | Respect prefers-reduced-motion |
+| 3.2 | ThemeToggle (React island) | 🔴 | Deferred: React islands blocked by Astro 7.3.5 + Vite 8.3.2 TSX transform bug in this environment. Non-React placeholder used for now. |
+| 3.3 | MobileNav (React island, hamburger) | 🔴 | Deferred: React islands blocked by Astro 7.3.5 + Vite 8.3.2 TSX transform bug in this environment. Non-React placeholder used for now. |
+| 3.4 | Hero (parallax image right side — desktop only) | 🔴 | Deferred: React islands blocked by Astro 7.3.5 + Vite 8.3.2 TSX transform bug in this environment. CSS-only fallback for now. |
 | 3.5 | Terminal-style code card | ⬜ | |
 | 3.6 | Metrics (4 cards, CMS-driven) | ⬜ | label, value, icon, description |
 | 3.7 | Projects (4 cards, hover animations via CSS) | ⬜ | |

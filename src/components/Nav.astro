@@ -1,0 +1,60 @@
+---
+const links = [
+  { label: "Work", href: "#work" },
+  { label: "About", href: "#about" },
+  { label: "Stack", href: "#stack" },
+  { label: "Contact", href: "#contact" },
+];
+
+const email = "themindshow109@gmail.com";
+---
+
+<header class="border-b bg-card">
+  <nav class="mx-auto flex max-w-5xl items-center justify-between p-4" aria-label="Primary">
+    <a
+      href="#work"
+      class="font-mono text-sm text-primary hover:underline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+      aria-label="Loknath Patel portfolio, Work"
+    >
+      portfolio
+    </a>
+
+    <ul class="hidden items-center gap-4 text-foreground sm:flex">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="font-medium focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hover:underline"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+      <li>
+        <a
+          href={`mailto:${email}`}
+          class="rounded border border-border bg-card px-3 py-1.5 text-sm text-foreground focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hover:bg-muted"
+        >
+          Email
+        </a>
+      </li>
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <button
+        type="button"
+        id="theme-toggle"
+        class="rounded border border-border bg-card px-3 py-1.5 text-sm text-foreground focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+      >
+        Theme
+      </button>
+      <button
+        type="button"
+        id="mobile-menu-toggle"
+        class="rounded border border-border bg-card px-3 py-1.5 text-sm text-foreground focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+      >
+        Menu
+      </button>
+    </div>
+  </nav>
+</header>
