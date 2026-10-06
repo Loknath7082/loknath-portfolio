@@ -79,12 +79,12 @@ Review cadence: run the ponytail review command after every meaningful code chan
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 4.1 | src/pages/api/contact.ts (standard Astro route) | ⬜ | |
-| 4.2 | Resend API via fetch (not Node SDK) | ⬜ | Works on all runtimes |
+| 4.1 | src/pages/api/contact (standard Astro route) | ✅ | Working route: src/pages/api/contact.js (plain JS). TypeScript API routes (src/pages/api/*.ts) blocked in this environment by Astro 7.3.5 + Vite 8.3.2 source-transform bug (Unexpected token on imports). |
+| 4.2 | Resend API via fetch (not Node SDK) | ✅ | fetch-based, no Node SDK. Uses onboarding@resend.dev placeholder from until real RESEND_FROM/contact email configured. |
 | 5.1 | tina/config.ts | ⬜ | |
-| 4.4 | Zod validation for all fields | ⬜ | |
-| 4.5 | Rate limiting (in-memory Map for now) | ⬜ | Portable; swap to KV later |
-| 4.6 | Success/error inline feedback with aria-live | ⬜ | |
+| 4.3 | Env vars: RESEND_API_KEY, CONTACT_TO_EMAIL | ⬜ | Document in README + .env.example |
+| 4.4 | Validation (all fields required) | 🟡 | Plain JS validation in contact.js (name/email/subject/message). Zod deferred until TypeScript API routes build. |
+| 4.5 | Rate limiting (in-memory Map for now) | ⬜ | Not yet implemented (deferred). |
 
 ---
 
