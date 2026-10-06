@@ -1,0 +1,21 @@
+---
+import { metrics } from "../data/content.js";
+---
+
+<section id="metrics" class="border-t bg-card pt-12 pb-16">
+  <div class="mx-auto max-w-5xl">
+    <h2 class="text-2xl font-medium mb-8 reveal">Metrics</h2>
+    <dl class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {metrics.map((metric) => (
+        <div class="rounded border border-border bg-card p-6 reveal">
+          <dt class="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+            <span aria-hidden="true">{metric.icon}</span>
+            {metric.label}
+          </dt>
+          <dd class="mt-2 text-3xl font-semibold">{metric.value}</dd>
+          <dd class="mt-2 text-sm text-foreground">{metric.description}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>
