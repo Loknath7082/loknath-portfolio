@@ -48,11 +48,11 @@ Review cadence: run the ponytail review command after every meaningful code chan
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 2.1 | Semantic CSS variables (--background, --foreground, --primary, etc.) | ⬜ | |
-| 2.2 | Dark mode (default) | ⬜ | |
-| 2.3 | Light mode toggle (deliberate palette, not inverted) | ⬜ | |
-| 2.4 | localStorage persistence + FOUC prevention (inline <head> script) | ⬜ | |
-| 2.5 | Tailwind v4 @theme directive mapping CSS variables | ⬜ | No tailwind.config.mjs |
+| 2.1 | Semantic CSS variables (--background, --foreground, --primary, etc.) | ✅ | |
+| 2.2 | Dark mode (default) | ✅ | |
+| 2.3 | Light mode toggle (deliberate palette, not inverted) | ✅ | Vanilla JS in Nav.astro <script is:inline>; toggles data-theme on <html>; persists to localStorage; button label syncs. |
+| 2.4 | localStorage persistence + FOUC prevention (inline <head> script) | ✅ | |
+| 2.5 | Tailwind v4 @theme directive mapping CSS variables | ✅ | No tailwind.config.mjs |
 
 ---
 
@@ -60,20 +60,20 @@ Review cadence: run the ponytail review command after every meaningful code chan
 
 | # | Component | Status | Notes |
 |---|-----------|--------|-------|
-| 3.1 | Nav (Work · About · Stack · Contact) | ⬜ | |
-| 3.2 | ThemeToggle (React island) | 🔴 | Deferred: React islands blocked by Astro 7.3.5 + Vite 8.3.2 TSX transform bug in this environment. Non-React placeholder used for now. |
-| 3.3 | MobileNav (React island, hamburger) | 🔴 | Deferred: React islands blocked by Astro 7.3.5 + Vite 8.3.2 TSX transform bug in this environment. Non-React placeholder used for now. |
+| 3.1 | Nav (Work · About · Stack · Contact) | ✅ | |
+| 3.2 | ThemeToggle (vanilla JS, not React island) | ✅ | Wired in Nav.astro <script is:inline>. Toggle button swaps data-theme, persists to localStorage, syncs label. React island deferred. |
+| 3.3 | MobileNav (vanilla JS, hamburger) | ✅ | Wired in Nav.astro <script is:inline>. Toggle button opens/closes primary links on small screens; aria-expanded synced; closes on link click or resize past breakpoint. React island deferred. |
 | 3.4 | Hero (parallax image right side — desktop only) | 🔴 | Deferred: React islands blocked by Astro 7.3.5 + Vite 8.3.2 TSX transform bug in this environment. CSS-only fallback for now. |
 | 3.5 | Terminal-style code card | ⬜ | Not built in this slice; placeholder only. Deferred to a later slice. |
-| 3.6 | Metrics (4 cards, CMS-driven) | 🟡 | Metrics component built with 4 placeholder cards (label/value/icon/description). CMS-driven deferred (TinaCMS blocked). |
+| 3.6 | Metrics (4 cards, CMS-driven) | 🟡 | Metrics component built with 4 placeholder cards (label/value/icon/description). CMS-driven deferred (TinaCMS blocked). Scroll-reveal added. |
 
-| 3.7 | Projects (4 cards, hover animations via CSS) | 🟡 | Projects component built with 4 placeholder project cards; CSS hover scale + hover state included. |
+| 3.7 | Projects (4 cards, hover animations via CSS) | ✅ | Projects component built with 4 placeholder project cards; CSS hover scale + hover state + card-glow + tech-tag hover included. Scroll-reveal added. |
 
-| 3.8 | Technical Writing (article cards) | 🟡 | Writing component built with article cards; 4 placeholder article .md pages created. |
+| 3.8 | Technical Writing (article cards) | ✅ | Writing component built with article cards; 4 placeholder article .md pages created. Scroll-reveal added. |
 
-| 3.9 | Tech Capabilities (3-column grid) | 🟡 | Skills component built as 3-column grid with placeholder capabilities. |
+| 3.9 | Tech Capabilities (3-column grid) | ✅ | Skills component built as 3-column grid with placeholder capabilities. Tech tags get hover scale + color. Scroll-reveal added. |
 
-| 3.10 | About / Bio | 🟡 | About component built with placeholder bio + engineering mindset. |
+| 3.10 | About / Bio | ✅ | About component built with placeholder bio + engineering mindset. Scroll-reveal added. |
 
 | 3.11 | Contact Form (React island) | ⬜ | aria-live feedback |
 | 3.12 | Footer (6 social links, CMS-driven) | ⬜ | |
@@ -122,9 +122,9 @@ Review cadence: run the ponytail review command after every meaningful code chan
 | # | Task | Status | Notes |
 |---|------|--------|-------|
 | 7.1 | Parallax on hero image (Framer Motion, desktop only) | ⬜ | |
-| 7.2 | Staggered fade-up (Intersection Observer + CSS) | ⬜ | |
-| 7.3 | Card hover scale + glow (CSS) | ⬜ | |
-| 7.4 | Tech tag hover scale (CSS) | ⬜ | |
+| 7.2 | Staggered fade-up (Intersection Observer + CSS) | ✅ | .reveal class: opacity 0 → translateY(16px) → visible. IntersectionObserver init in index.astro <script is:inline>; guarded by prefers-reduced-motion. Applied to section headings + cards across Metrics, Projects, Writing, Skills, About. |
+| 7.3 | Card hover scale + glow (CSS) | ✅ | .card-glow: box-shadow on hover (1px primary border + soft shadow). Applied to project cards. |
+| 7.4 | Tech tag hover scale (CSS) | ✅ | .tech-tag: scale(1.05) + primary bg + foreground text on hover. Applied to project tech tags + skills tags. | |
 
 ---
 
@@ -195,12 +195,12 @@ Review cadence: run the ponytail review command after every meaningful code chan
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 12.1 | Standard Astro API route (no host-specific code) | ⬜ | |
-| 12.2 | Adapter isolated to astro.config.mjs only | ⬜ | |
-| 12.3 | No Node-only APIs in API routes | ⬜ | Web standards only |
-| 12.4 | Resend called via fetch (not Node SDK) | ⬜ | |
-| 12.5 | README: adapter switch guide added | ⬜ | |
-| 12.6 | Env vars documented for Vercel + Netlify + Cloudflare | ⬜ | |
+| 12.1 | Standard Astro API route (no host-specific code) | ✅ | |
+| 12.2 | Adapter isolated to astro.config.mjs only | ✅ | |
+| 12.3 | No Node-only APIs in API routes | ✅ | Web standards only |
+| 12.4 | Resend called via fetch (not Node SDK) | ✅ | |
+| 12.5 | README: adapter switch guide added | ✅ | README.md includes deploy guide for Vercel, Netlify, Cloudflare with adapter swap instructions. |
+| 12.6 | Env vars documented for Vercel + Netlify + Cloudflare | ✅ | .env.example + README.md env var table. |
 
 ---
 
@@ -212,6 +212,7 @@ Review cadence: run the ponytail review command after every meaningful code chan
 | 2026-10-06 | Fixed Tailwind v4 @theme directive; added FOUC prevention; added Zod + rate limiting; added outcome field; Cloudinary media store clarified | Spec |
 
 | 2026-10-06 | Added Ponytail as project-wide working style at FULL intensity (session-only) | agent |
+| 2026-10-06 | Final 3 slices committed on dev: (1) theme toggle + mobile menu vanilla JS, (2) CSS scroll reveal + hover animations, (3) deployment prep README/.env.example/.gitignore. Accessibility slice already committed (549ef8f). Build passing. | agent |
 
 ---
 
