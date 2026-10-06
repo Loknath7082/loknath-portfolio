@@ -92,12 +92,12 @@ Review cadence: run the ponytail review command after every meaningful code chan
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 5.1 | tina/config.ts | ⬜ | |
-| 5.2 | projects collection schema (+ outcome field) | ⬜ | |
-| 5.3 | articles collection schema | ⬜ | |
-| 5.4 | siteConfig schema (socialLinks, metrics[]) | ⬜ | |
-| 5.5 | Cloudinary media store integration | ⬜ | Not local public/ |
-| 5.6 | TinaCMS Cloud connection | ⬜ | |
+| 5.1 | tina/config.ts | 🔴 | Deferred: TinaCMS config is TypeScript source; .ts config/route source transformation is blocked in this environment (Astro 7.3.5 + Vite 8.3.2 __directives/not transforming src/pages .ts/.tsx imports). Placeholder tina/config.js not viable for TinaCMS Astro integration in this state. |
+| 5.2 | projects collection schema (+ outcome field) | 🔴 | Deferred with Section 5.1. |
+| 5.3 | articles collection schema | 🔴 | Deferred with Section 5.1. |
+| 5.4 | siteConfig schema (socialLinks, metrics[]) | 🔴 | Deferred with Section 5.1. |
+| 5.5 | Cloudinary media store integration | 🔴 | Deferred with Section 5.1. |
+| 5.6 | TinaCMS Cloud connection | 🔴 | Deferred with Section 5.1. |
 
 ---
 
